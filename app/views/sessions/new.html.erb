@@ -1,0 +1,45 @@
+<!--<h1>Log in</h1>
+<p>Find me in app/views/sessions/new.html.erb</p>-->
+<div id="header_wrapper">
+<h1> Welcome to YallaChat. </h1><img src="https://shalompaxsalaam.files.wordpress.com/2011/10/images-dove.jpg">
+</div>
+<div id="container-wrapper">
+<div class="tagline_wrapper">
+  <h2> Crossing Divisive Lines: Israeli & Arab/Palestinian Youth Connect Online to Learn More About Each Other.</h2>
+</div>
+<!-- <h2> Login </h2> -->
+<%= form_for @user, {url:session_path} do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="login_wrapper">
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Login" %>
+  </div>
+</div>
+<div id="Sign_Up">
+<h4>New to YallaChat? Sign Up!</h4>
+</div>
+</div>
+<% end %>
+<div class="Button">
+<%= link_to "Sign Up", new_user_path if !@is_signup%>
+</div>
