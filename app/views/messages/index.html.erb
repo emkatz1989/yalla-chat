@@ -1,0 +1,9 @@
+<ul id ="chat">
+	<%render @messages %>
+</ul>
+
+<!-- messages form--remote => true submits form through Ajax -->
+<%=form_for Message.new, :remote => true do |f| %>
+	<%=f.text_field :content %>
+	<%=f.submit "Send" %>
+<% end %>

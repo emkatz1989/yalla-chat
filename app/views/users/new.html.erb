@@ -18,12 +18,12 @@
 
 	 <h1>Sign-Up</h1>
 
-<%= form_for @user, {url:session_path} do |f| %>
+<%= form_for @user do |f| %>
         Fullname: <%= f.text_field :fullname, placeholder: "Name"%>
         Age: <%= f.text_field :age, placeholder: "age"%>
-        Birthday: <%= f.date_field :birthday, placeholder: "birthday"%>%>
-        Nationality: <%= f.text_field :nationality, placeholder: "nationality"%>%> 
-        City: <%= f.text_field :city, placeholder: "city"%>%> 
+        Birthday: <%= f.date_field :birthday, placeholder: "birthday"%>
+        Nationality: <%= f.text_field :nationality, placeholder: "nationality"%> 
+        City: <%= f.text_field :city, placeholder: "city"%> 
         Username: <%= f.text_field :username, placeholder: "Username"%>
         Password: <%= f.password_field :password, placeholder: "Password"%>
         Repeat Password: <%= f.password_field :password_confirmation, placeholder: "Password"%>
@@ -33,4 +33,4 @@
 
     <% end %>
 
-<%= link_to 'Back', new_session_path %>
+<%= link_to 'Back', session_path %>

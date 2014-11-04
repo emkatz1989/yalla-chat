@@ -1,3 +1,86 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+	margin: auto;
+	background-color: white;
+}
+
+#container_wrapper{
+	display: inline;
+	float: left;
+}
+
+#header_wrapper{
+	display: inline;
+	margin-left: 250px;
+	background-color: white;
+	width: 500px;
+	height: 350px;
+	border-style: 2px solid black;
+}
+
+h1{
+	font-style: italic;
+	font-size: 50px; 
+	text-align: center;
+	display: inline;
+	image: url("https://shalompaxsalaam.files.wordpress.com/2011/10/images-dove.jpg");
+	border-style: 2px solid black;
+	width: 500px;
+	height: 350px;
+	margin: auto;
+}
+
+.tagline_wrapper{
+	margin: auto;
+	// margin-top: 100px;
+	width: 500px;
+	height: 200px;
+	border-style: 5px solid black;
+	// margin-bottom: 100px;
+	margin-left: 70px;
+	padding-top: 20px;
+
+}
+
+// image{
+// 	image-size: 10px;
+// }
+
+.login_wrapper{
+	display: inline;
+	margin: auto; 
+	width: 300px;
+	height: 150px;
+	border-style: 5px solid black;
+	// margin-bottom: 300px;
+	margin-right: 20px;
+	// opacity: 0.6;
+	border-radius: 10px;
+	background-color: blue;
+	padding-top: 10px;
+}
+
+.field{
+
+	text-align: right;
+	margin-right: 70px
+}
+
+.actions{
+	text-align: right;
+	margin-right: 70px
+
+}
+
+#Sign_Up{
+	text-align: right;
+	float: right;
+	margin-right: 60px;
+	display: inline-block;
+	width: 390px;
+	height: 150px;
+	padding-top: 10px;
+}

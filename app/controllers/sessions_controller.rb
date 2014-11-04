@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
   def new
+  	# Present an empty login form
   	@user = User.new
   	@is_login = true
   end
-
+#signup is going here
   def create
   	# Find the user that is trying to log in		
 	u = User.where(username: params[:user][:username]).first 
@@ -16,8 +17,8 @@ class SessionsController < ApplicationController
 	    session[:user_id] = u.id.to_s
 	    redirect_to chatrooms_path #go to chatroom page
   	else
-  	    flash.now.alert = "Invalid username or password"
-  		render "new"
+  	    # Go back to the login page
+		redirect_to new_session_path
   	end
   end
 

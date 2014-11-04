@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'messages/post'
+
+  get 'chatroom/onlineusers'
+
+  get 'chatroom/cpacity'
+
   # get 'sessions/new'
 
   # get 'sessions/create'

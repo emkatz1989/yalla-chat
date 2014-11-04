@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   
+#GET /users
   def index
     @users = User.all
   end
@@ -11,20 +12,22 @@ class UsersController < ApplicationController
 
   end
 
+#GET /users/new
   def new
     @user = User.new
+    @is_sign_up = true
   end
 
   def edit
-    @user = User.where(id:params[:id]).first
+    # @user = User.where(id:params[:id]).first
   end
 
   def create
     @user = User.new(user_params)
-    if @user.save
+     if @user.save
       redirect_to new_session_path, :notice => "User was successfully created!"
     else
-      render "new"
+       redirect_to new_user_path
     end
   end
 
@@ -33,6 +36,7 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         redirect_to new_session_path
       else
+        @user  = User.new
         render "new"
       end
   end
@@ -49,7 +53,7 @@ class UsersController < ApplicationController
 private
 
   def user_params
-      params.require(:user).permit(:name, :age, :birthday, :nationality, :city, :username, :password, :password_confirmation)
+      params.require(:user).permit(:fullname, :age, :birthday, :nationality, :city, :username, :password, :password_confirmation)
     end
 
   def make_sure_admin
