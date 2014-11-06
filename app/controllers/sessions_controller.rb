@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def new
   	# Present an empty login form
   	@user = User.new
-  	@is_login = true
+  	# @is_login = true
   end
 #signup is going here
   def create
@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
 		# indicating that they are logged in
 		#saves long hexadecimal ID nonsense in password
 	    session[:user_id] = u.id.to_s
+      @is_login=true
 	    redirect_to messages_path #go to chatroom page
   	else
   	    # Go back to the login page

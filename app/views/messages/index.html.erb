@@ -4,18 +4,37 @@
 
 <h1> YallaChat </h2>
 <!-- <messages form--remote => true submits form through Ajax -->
+
+<!-- CHATBOX -->
 <div id="chatBox">
+
+<!-- if user is logged in, then say user just entered the room -->
+<% @users.each do |user| %> 
+<% @is_login %>
+<p><%=user.username%> just entered the room. </p>
+<% end %>
+
+<!--if user is logged out, then say user just entered the room -->
+<%# if !@is_login %> 
+<%# users.each do |user| %>
+<!-- <p><%#=user.username%> just left the room. </p>  -->
+<%# end %>
+
+<!--message display-->
 <% @messages.each do|message| %>
-<p><%=message.user.username%>:<%= message.content %></p>
+<p>(<%=message.created_at%>): <b><%=message.user.username%></b>: <%= message.content %></p>
 <% end %>
 </div>
+
+<!--Display users online Box-->
 <div id="usersOnline">
 <% @users.each do |user| %> 
-<p> <%#=user.username if @is_login=true %> 
 	<% @is_login %>
 	<%= user.username %><p> 
 <% end %>
 </div> 
+
+<!--Message Form-->
 <%=form_for @message, :remote => true do |f| %>
 	<%=f.text_field :content %>
 	<%=f.hidden_field :user_id, :value => current_user.id %>
