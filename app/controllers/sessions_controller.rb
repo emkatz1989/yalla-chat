@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
   def create
   	# Find the user that is trying to log in		
 	u = User.where(username: params[:user][:username]).first 
+	# raise u (for checking if the line is working)
 	#And if they have the right password...
 	if u && u.authenticate(params[:user][:password])
 		# '.where' always returns an array, so we only want first member
@@ -15,7 +16,7 @@ class SessionsController < ApplicationController
 		# indicating that they are logged in
 		#saves long hexadecimal ID nonsense in password
 	    session[:user_id] = u.id.to_s
-	    redirect_to chatrooms_path #go to chatroom page
+	    redirect_to messages_path #go to chatroom page
   	else
   	    # Go back to the login page
 		redirect_to new_session_path

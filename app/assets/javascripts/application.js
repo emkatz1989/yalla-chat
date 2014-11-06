@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+	var faye = new Faye.Client('http://localhost:9292/faye');
+	// Make 'subscribe' dependent on page the user is currently on
+	///messages/new as channel that you want to subscribe to, and second argument function is a callback function
+	faye.subscribe("/messages/new", function(data){
+		eval(data);
+	});
+});

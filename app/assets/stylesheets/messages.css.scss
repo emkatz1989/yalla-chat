@@ -2,3 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#chatBox {
+    font-family:tahoma;
+    font-size:12px;
+    color:black;
+    border: 1px teal solid;
+    height: 225px;
+    width: 400px;
+    overflow: scroll;
+    float:left;
+}
+
+#usersOnline{
+    font-family:tahoma;
+    font-size:14;
+    color:orange;
+    border:1px teal solid;
+    width:150px;
+    height:225px;
+    overflow:scroll;
+    margin-left:1px;
+}
+
+#message {
+    width: 350px;
+    height: 22px;
+    border: 1px teal solid;
+    float:left;
+    margin-top:1px;
+ }

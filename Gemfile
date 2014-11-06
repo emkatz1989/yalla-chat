@@ -29,6 +29,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'better_errors'
 
+#Use for asynchronous messaging
+gem 'faye'
+
+#Use to push messages
+gem 'pusher', '~> 0.14.2'
 # Use unicorn as the app server
 # gem 'unicorn'
 

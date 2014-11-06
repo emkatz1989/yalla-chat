@@ -1,9 +1,29 @@
-<ul id ="chat">
-	<%render @messages %>
-</ul>
+<!-- <ul id ="chat">
+	<%#render @messages %>
+</ul> -->
 
-<!-- messages form--remote => true submits form through Ajax -->
-<%=form_for Message.new, :remote => true do |f| %>
+<h1> YallaChat </h2>
+<!-- <messages form--remote => true submits form through Ajax -->
+<div id="chatBox">
+<% @messages.each do|message| %>
+<p><%=message.user.username%>:<%= message.content %></p>
+<% end %>
+</div>
+<div id="usersOnline"></div>
+<%=form_for @message, :remote => true do |f| %>
 	<%=f.text_field :content %>
+	<%=f.hidden_field :user_id, :value => current_user.id %>
 	<%=f.submit "Send" %>
 <% end %>
+
+<!-- 
+<body>
+    <div>
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello {{yourName}}!</h1>
+    </div>
+  </body>
+</html>
+ -->

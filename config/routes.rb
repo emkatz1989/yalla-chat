@@ -1,38 +1,34 @@
 Rails.application.routes.draw do
-  get 'messages/post'
-
-  get 'chatroom/onlineusers'
-
-  get 'chatroom/cpacity'
-
-  # get 'sessions/new'
-
-  # get 'sessions/create'
-
-  # get 'sessions/destroy'
-
-  # get 'users/index'
-
-  # get 'users/show'
-
-  # get 'users/new'
-
-  # get 'users/edit'
-
-  # get 'users/create'
-
-  # get 'users/update'
-
-  # get 'users/destroy'
+  
   root 'sessions#new'
-  # get "log_in" => "sessions#new", :as => "log_in"
 
-  # get "sign_up" => "users#new", :as => "sign_up"
   resources :users, except: [:show]
   resource :session, only: [:create, :new, :destroy]
-  # resources :chatrooms
+  resources :chatrooms
+  resources :messages
 
 end
+
+#   Prefix Verb   URI Pattern                     Controller#Action
+#        messages_post GET    /messages/post(.:format)        messages#post
+# chatroom_onlineusers GET    /chatroom/onlineusers(.:format) chatroom#onlineusers
+#     chatroom_capacity GET    /chatroom/capacity(.:format)    chatroom#capacity
+#                 root GET    /                               sessions#new
+#                users GET    /users(.:format)                users#index
+#                      POST   /users(.:format)                users#create
+#             new_user GET    /users/new(.:format)            users#new
+#            edit_user GET    /users/:id/edit(.:format)       users#edit
+#                 user PATCH  /users/:id(.:format)            users#update
+#                      PUT    /users/:id(.:format)            users#update
+#                      DELETE /users/:id(.:format)            users#destroy
+#              session POST   /session(.:format)              sessions#create
+#          new_session GET    /session/new(.:format)          sessions#new
+#                      DELETE /session(.:format)              sessions#destroy
+
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
