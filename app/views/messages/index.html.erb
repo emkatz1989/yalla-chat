@@ -9,21 +9,17 @@
 <p><%=message.user.username%>:<%= message.content %></p>
 <% end %>
 </div>
-<div id="usersOnline"></div>
+<div id="usersOnline">
+<% @users.each do |user| %> 
+<p> <%#=user.username if @is_login=true %> 
+	<% @is_login %>
+	<%= user.username %><p> 
+<% end %>
+</div> 
 <%=form_for @message, :remote => true do |f| %>
 	<%=f.text_field :content %>
 	<%=f.hidden_field :user_id, :value => current_user.id %>
 	<%=f.submit "Send" %>
 <% end %>
 
-<!-- 
-<body>
-    <div>
-      <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello {{yourName}}!</h1>
-    </div>
-  </body>
-</html>
- -->
+
