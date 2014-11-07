@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'better_errors'
 
+gem 'rails_12factor'
+
 #Use for asynchronous messaging
 gem 'faye'
 
