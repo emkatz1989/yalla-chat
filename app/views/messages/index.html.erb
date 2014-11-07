@@ -5,6 +5,7 @@
 <h1> YallaChat </h2>
 <!-- <messages form--remote => true submits form through Ajax -->
 
+<div class="chat_container"
 <!-- CHATBOX -->
 <div id="chatBox">
 
@@ -15,15 +16,26 @@
 <% end %>
 
 <!--if user is logged out, then say user just entered the room -->
-<%# if !@is_login %> 
+<%# user.is_logged_in==false %> 
 <%# users.each do |user| %>
-<!-- <p><%#=user.username%> just left the room. </p>  -->
+<!-- <p><%#=user.username%> just left the room. </p>   -->
 <%# end %>
 
 <!--message display-->
 <% @messages.each do|message| %>
 <p>(<%=message.created_at%>): <b><%=message.user.username%></b>: <%= message.content %></p>
 <% end %>
+</div>
+
+<div class="message">
+<!--Message Form-->
+<%=form_for @message, :remote => true do |f| %>
+	<%=f.text_field :content %>
+	<%=f.hidden_field :user_id, :value => current_user.id %>
+	<%=f.submit "Send" %>
+</div>
+<% end %>
+
 </div>
 
 <!--Display users online Box-->
@@ -34,11 +46,5 @@
 <% end %>
 </div> 
 
-<!--Message Form-->
-<%=form_for @message, :remote => true do |f| %>
-	<%=f.text_field :content %>
-	<%=f.hidden_field :user_id, :value => current_user.id %>
-	<%=f.submit "Send" %>
-<% end %>
 
 

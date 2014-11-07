@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 		# indicating that they are logged in
 		#saves long hexadecimal ID nonsense in password
 	    session[:user_id] = u.id.to_s
-      @is_login=true
+      u.is_logged_in = true
 	    redirect_to messages_path #go to chatroom page
   	else
   	    # Go back to the login page

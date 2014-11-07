@@ -11,7 +11,7 @@ class User
   field :city, type: String
   field :username, type: String
   field :password_digest, type: String
-  
+  field :is_logged_in, type: Mongoid::Boolean, default: false
   # field :is_verified, type: Mongoid::Boolean, default: false
   # field :is_admin, type: Mongoid::Boolean, default: false
 
