@@ -1,50 +1,83 @@
 <!-- <ul id ="chat">
 	<%#render @messages %>
 </ul> -->
-
-<h1> YallaChat </h2>
+<div class="chat_page_wrapper">
+<div class = "header_chat">
+<h1> YallaChat! </h1>
+<h2> Welcome, <%=current_user.username%>! </h2>
 <!-- <messages form--remote => true submits form through Ajax -->
+</div>
 
-<div class="chat_container"
+<div id="chat_container">
 <!-- CHATBOX -->
-<div id="chatBox">
+<div class="chatBox">
 
 <!-- if user is logged in, then say user just entered the room -->
 <% @users.each do |user| %> 
-<% @is_login %>
+<% user.is_logged_in==true %>
 <p><%=user.username%> just entered the room. </p>
 <% end %>
 
-<!--if user is logged out, then say user just entered the room -->
+<!-- if user is logged out, then say user just left the room -->
 <%# user.is_logged_in==false %> 
 <%# users.each do |user| %>
-<!-- <p><%#=user.username%> just left the room. </p>   -->
-<%# end %>
+<!-- <p><%#=user.username%> just left the room. </p>    -->
+<%# end %> 
+
+
 
 <!--message display-->
+
 <% @messages.each do|message| %>
-<p>(<%=message.created_at%>): <b><%=message.user.username%></b>: <%= message.content %></p>
-<% end %>
-</div>
+<p>(<%=message.created_at%>): <b><%=message.user.username%></b>: <%= message.content %></p> 
+<% end %> 
 
-<div class="message">
+<!-- <%# if current_user %>
+<%#=render 'form' %>
+ <div id="messages"
+ <ul class="media-list">
+        <%#=@message%>
+ </ul>
+</div> 
+ <%# end %>
+
+</div> -->
+
+
+
+
+
 <!--Message Form-->
-<%=form_for @message, :remote => true do |f| %>
-	<%=f.text_field :content %>
-	<%=f.hidden_field :user_id, :value => current_user.id %>
-	<%=f.submit "Send" %>
-</div>
-<% end %>
 
 </div>
-
+</div>
 <!--Display users online Box-->
 <div id="usersOnline">
+<p>Online Users</p>
 <% @users.each do |user| %> 
-	<% @is_login %>
-	<%= user.username %><p> 
+	<% user.is_logged_in==true %>
+	<%= user.username %>
 <% end %>
 </div> 
+
+
+<!--Message Input Line -->
+
+<div class="message">
+<%=form_for @message, :remote => true do |f| %>
+	<%=f.text_field :content, :rows => "3", :size =>"150" %>
+	<%=f.hidden_field :user_id, :value => current_user.id %>
+	<%=f.submit "Send message" %>
+<% end %>
+</div>
+<div class="Button">
+<%= link_to "Logout", user_logout_path%>
+</div>
+</div>
+
+
+
+
 
 
 

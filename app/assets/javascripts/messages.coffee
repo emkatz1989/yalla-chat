@@ -1,5 +1,8 @@
 window.client = new Faye.Client('/faye') 
- 
+alert("loaded")
 jQuery ->
   client.subscribe '/messages', (payload) ->
-    $('#comments').find('.media-list').prepend(payload.message) if payload.message
+    $('#messages').find('.media-list').prepend(payload.message) if payload.message
+
+
+

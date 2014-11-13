@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   
 #GET /users
   def index
-    @users = User.all
+    # @users = User.all
+    @users = User.order('created_at DESC')
   end
 
   def show
@@ -61,4 +62,9 @@ private
         redirect_to users_path
       end
     end
+
+  def current_user
+    return unless session[:user_id]
+    @current_user ||= User.find(session[:user_id])
+  end
 end
