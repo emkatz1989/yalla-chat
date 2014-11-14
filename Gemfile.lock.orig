@@ -162,7 +162,13 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   mongoid
+<<<<<<< HEAD
+  pusher (~> 0.14.2)
+  rails (= 4.1.6)
+  rails_12factor
+=======
   rails
+>>>>>>> the-real-deal
   sass-rails (~> 4.0.3)
   sprockets
   thin

@@ -9,14 +9,17 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
 //= require turbolinks
+//= require bootstrap
+//= require faye
+//= require messages
 //= require_tree .
 
 $(function(){
-	var faye = new Faye.Client('http://localhost:9292/faye');
+	var faye = new Faye.Client('http://localhost:8080/faye');
 	// Make 'subscribe' dependent on page the user is currently on
 	///messages/new as channel that you want to subscribe to, and second argument function is a callback function
 	faye.subscribe("/messages/new", function(data){

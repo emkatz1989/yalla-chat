@@ -1,2 +1,22 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
+
+ <h1>Sign-Up</h1>
+<div class="form">
+<%= form_for @user do |f| %>
+        Fullname: <%= f.text_field :fullname, placeholder: "Name"%>
+        Age: <%= f.text_field :age, placeholder: "age"%>
+        Birthday: <%= f.date_field :birthday, placeholder: "birthday"%>
+        Nationality: <%= f.text_field :nationality, placeholder: "nationality"%> 
+        City: <%= f.text_field :city, placeholder: "city"%> 
+        Username: <%= f.text_field :username, placeholder: "Username"%>
+        Password: <%= f.password_field :password, placeholder: "Password"%>
+        Repeat Password: <%= f.password_field :password_confirmation, placeholder: "Password"%>
+
+
+        <%= f.submit "Save Changes" %>
+
+    <% end %>
+</div>
+
+<%= link_to 'Back', root_path %>

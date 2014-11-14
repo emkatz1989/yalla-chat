@@ -1,3 +1,73 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+	// background: #448ed3;
+	background-image: url("http://postmediavancouversun.files.wordpress.com/2014/07/120-rvqjwv3.jpg");
+	   // background-image: url(/yallachat/olive-tree.jpg);
+	// background-image: url("http://cache4.asset-cache.net/gc/120998420-olive-branch-silhouette-against-sunset-gettyimages.jpg?v=1&c=IWSAsset&k=2&d=KwsDjh9mh8MubQ64qDm%2FHjUpc8FYpUeNm4VsErF3roE%3D");
+	background-size: cover;
+	// background-repeat: repeat-y;
+
+
+}
+
+#header_wrapper{
+	margin-left: 370px;
+}
+
+
+
+#header_wrapper h1{
+	font-style: italic;
+	font-size: 40px; 
+	text-align: center;
+	display: inline;
+	// image: url("images-dove.jpg");
+	// image: url("https://shalompaxsalaam.files.wordpress.com/2011/10/images-dove.jpg");
+	width: 500px;
+	height: 350px;
+	color: white;
+	
+}
+
+header-wrapper
+
+
+.login_wrapper{
+	display: inline;
+	margin: auto; 
+	width: 300px;
+	height: 150px;
+	border-style: 5px solid black;
+	// margin-bottom: 300px;
+	margin-right: 20px;
+	// opacity: 0.6;
+	border-radius: 10px;
+	padding-top: 10px;
+	background-color: white;
+	opacity: 0.6;
+}
+
+
+.field{
+
+	text-align: right;
+	margin-right: 70px
+}
+
+.actions{
+	text-align: right;
+	margin-right: 70px
+
+}
+
+#Sign_Up{
+	text-align: right;
+	float: right;
+	margin-right: 60px;
+	display: inline-block;
+	width: 390px;
+	height: 150px;
+	padding-top: 10px;
+}

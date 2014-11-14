@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   root 'sessions#new'
 
   resources :users, except: [:show]
-  resource :session, only: [:create, :new, :destroy]
+  resource :session, only: [:create, :new]
   resources :chatrooms
-  resources :messages
+  resources :messages 
+
+  get '/user_logout' => 'sessions#user_logout', as: :user_logout
 
 end
 
